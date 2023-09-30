@@ -1,16 +1,3 @@
-# twitter_clone
+# FlutterSocial-TwitterClone
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+FlutterSocial is a feature-rich Twitter clone built with Flutter, offering users the ability to sign up and sign in with email and password, create tweets with text, images, or links, identify and store hashtags, interact with tweets through liking, retweeting, and commenting, follow other users, search for users, view followers and following lists, edit user profiles, explore tweets with specific hashtags, and even incorporate a 'Twitter Blue' premium feature. Stay connected and receive real-time notifications for replies, followers, likes, and retweets in the Notifications tab.
