@@ -37,6 +37,15 @@ class _SignupState extends State<Signup> {
     passwordController.dispose();
   }
 
+  //  void onSignUp() {
+  //   ref.read(authControllerProvider.notifier).signUp(
+  //         email: emailController.text,
+  //         password: passwordController.text,
+  //         context: context,
+  //       );
+  // }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
