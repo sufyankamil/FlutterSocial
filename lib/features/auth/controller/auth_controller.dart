@@ -39,4 +39,28 @@ class AuthController extends StateNotifier<bool> {
       Fluttertoast.showToast(msg: '$e:  Unavailable');
     }
   }
+
+  void login({
+    required String email,
+    required String password,
+    required BuildContext context,
+  }) async {
+    try {
+      // set loading state to true
+      state = true;
+      final result = await _authApi.login(email: email, password: password);
+
+      state = false;
+
+      result.fold(
+        (l) => Fluttertoast.showToast(
+          msg: l.message,
+          backgroundColor: Colors.red,
+        ),
+        (r) => print(r.userId),
+      );
+    } catch (e) {
+      Fluttertoast.showToast(msg: '$e:  Unavailable');
+    }
+  }
 }
