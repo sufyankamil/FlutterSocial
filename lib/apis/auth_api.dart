@@ -2,13 +2,15 @@
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
+import 'package:twitter_clone/core/providers.dart';
 
 import '../core/core.dart';
 import 'package:appwrite/appwrite.dart';
 import 'package:appwrite/models.dart' as model;
 
 final authAPIProvider = Provider((ref) {
-  // return AuthAPI(account: account);
+  final account = ref.watch(appwriteAccountProvider);
+  return AuthAPI(account: account);
 });
 
 // interface for AUTH API class

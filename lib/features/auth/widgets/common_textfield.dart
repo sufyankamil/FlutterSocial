@@ -6,7 +6,6 @@ class AuthField extends StatefulWidget {
   final String hintText;
   final String labelText;
   final String? Function(String?)? validator; // Validation function
-  // bool obscureText;
 
   const AuthField({
     Key? key,
@@ -14,7 +13,6 @@ class AuthField extends StatefulWidget {
     required this.hintText,
     this.validator,
     required this.labelText,
-    // this.obscureText = false,
   }) : super(key: key);
 
   @override
@@ -22,12 +20,9 @@ class AuthField extends StatefulWidget {
 }
 
 class _AuthFieldState extends State<AuthField> {
-  bool obscureText = true; // Separate obscureText for each AuthField
-
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      obscureText: obscureText,
       controller: widget.controller,
       validator: widget.validator,
       decoration: InputDecoration(
@@ -63,14 +58,6 @@ class _AuthFieldState extends State<AuthField> {
             color: Pallete.redColor,
           ),
         ),
-        // suffixIcon: AuthFieldSuffixIcon(
-        //   obscureText: obscureText,
-        //   toggleVisibility: () {
-        //     setState(() {
-        //       obscureText = !obscureText;
-        //     });
-        //   },
-        // ),
       ),
     );
   }
