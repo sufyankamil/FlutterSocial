@@ -15,4 +15,10 @@ class UIConstants {
       ),
     );
   }
+
+  static const List<Widget> bottomTabBarPages = [
+    Text("Feed Screen"),
+    Text("Bottom 2"),
+    Text("Bottom 3"),
+  ];
 }

@@ -4,19 +4,20 @@ import 'package:fpdart/fpdart.dart';
 import 'package:twitter_clone/constants/appwrite_constants.dart';
 import 'package:twitter_clone/core/core.dart';
 import 'package:twitter_clone/models/user_model.dart';
+import 'package:appwrite/models.dart' as model;
 
 import '../core/providers.dart';
 
 final userAPIProvider = Provider((ref) {
   return UserAPI(
-    db: ref.watch(
-        appwriteDatabaseProvider),
+    db: ref.watch(appwriteDatabaseProvider),
     // realtime: ref.watch(appwriteRealtimeProvider),
   );
 });
 
 abstract class IUserAPI {
   FutureEitherVoid saveUserData(UserModel userModel);
+  Future<model.Document> getUserData(String uid);
 }
 
 class UserAPI extends IUserAPI {
@@ -46,5 +47,14 @@ class UserAPI extends IUserAPI {
         stacktrace,
       ));
     }
+  }
+
+    @override
+  Future<model.Document> getUserData(String uid) {
+    return _db.getDocument(
+      databaseId: AppWriteConstants.databaseID,
+      collectionId: AppWriteConstants.usersCollection,
+      documentId: uid,
+    );
   }
 }
