@@ -8,6 +8,8 @@ class AppWriteConstants {
   static String projectID = dotenv.env['DATABASE_PROJECT_ID']!;
   static String endPoint = dotenv.env['ENDPOINT_ID']!;
   static String usersCollection = dotenv.env['USER_COLLECTION_ID']!;
+  static String tweetsCollection = dotenv.env['TWEET_COLLECTION_ID']!;
+  static String imagesBucket = dotenv.env['IMAGES_BUCKET_ID']!;
 
   static String getEndpoint() {
     if (Platform.isAndroid) {
@@ -16,4 +18,7 @@ class AppWriteConstants {
       return dotenv.env['ENDPOINT_ID']!;
     }
   }
+
+  static String imageUrl(String imageId) =>
+      '$endPoint/storage/buckets/$imagesBucket/files/$imageId/view?project=$projectID&mode=admin';
 }
