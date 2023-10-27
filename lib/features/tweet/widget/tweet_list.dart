@@ -41,26 +41,28 @@ class TweetList extends ConsumerWidget {
                       tweet = Tweet.fromMap(data.payload);
                       tweets.insert(tweetIndex, tweet);
                     }
+                    return Text('test');
 
-                    return ListView.builder(
-                      itemCount: tweets.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        final tweet = tweets[index];
-                        return TweetCard(tweet: tweet);
-                      },
-                    );
+                    // return ListView.builder(
+                    //   itemCount: tweets.length,
+                    //   itemBuilder: (BuildContext context, int index) {
+                    //     final tweet = tweets[index];
+                    //     return TweetCard(tweet: tweet);
+                    //   },
+                    // );
                   },
                   error: (error, stackTrace) => ErrorText(
                     error: error.toString(),
                   ),
                   loading: () {
-                    return ListView.builder(
-                      itemCount: tweets.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        final tweet = tweets[index];
-                        return TweetCard(tweet: tweet);
-                      },
-                    );
+                    return Text('test');
+                    // return ListView.builder(
+                    //   itemCount: tweets.length,
+                    //   itemBuilder: (BuildContext context, int index) {
+                    //     final tweet = tweets[index];
+                    //     return TweetCard(tweet: tweet);
+                    //   },
+                    // );
                   },
                 );
           },

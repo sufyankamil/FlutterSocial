@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:twitter_clone/apis/tweet_api.dart';
 import 'package:twitter_clone/models/tweet_model.dart';
+import 'package:twitter_clone/models/user_model.dart';
 import 'package:twitter_clone/theme/theme.dart';
 
 import '../../../apis/storage_api.dart';
@@ -194,5 +195,20 @@ class TweetController extends StateNotifier<bool> {
       }
     }
     return hastags;
+  }
+
+  void likeTweet(Tweet tweet, UserModel user) async {
+    List<String> likes = tweet.likes;
+
+    if (tweet.likes.contains(user.uid)) {
+      likes.remove(user.uid);
+    } else {
+      likes.add(user.uid);
+    }
+    tweet = tweet.copyWith(likes: likes);
+
+    final result = await _tweetAPI.likeTweet(tweet);
+
+    result.fold((l) => Fluttertoast.showToast(msg: l.message), (r) => null);
   }
 }
